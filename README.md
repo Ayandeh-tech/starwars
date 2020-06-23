@@ -56,6 +56,19 @@ python application.py
 
 ## Verifying Results
 
+When running the application, the program should output the following:
+
+```bash
+> python application.py
+Connecting to database...
+Rebuilding database tables and truncating them
+Fetching data from Star Wars API...
+Fetched data for 82 people
+Fetched data for 36 starships
+Inserting starships to database
+Inserting people and relation to starships to database
+```
+
 "adminer" is a postgres client, and it is setup already inside docker-compose. It can be accessed thorugh [http://localhost:7000](http://localhost:7000)
 
 Use the following credentails:
