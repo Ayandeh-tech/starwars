@@ -1,32 +1,7 @@
 import json
 import requests
 import psycopg2
-
-
-class StarWarsAPI:
-    def __init__(self, base_url):
-        self.base_url = base_url
-
-    def get_all_people(self):
-        return self._get_all_resource_items("{}/people".format(self.base_url))
-
-    def get_all_starships(self):
-        return self._get_all_resource_items("{}/starships".format(self.base_url))
-
-    def _get_all_resource_items(self, resource_url):
-        # Pagination: getting all resources using next
-        results = []
-        current_url = resource_url
-        while current_url is not None:
-            response = requests.get(current_url)
-            json_data = json.loads(response.content)
-            results.extend(json_data["results"])
-            if json_data["next"] != None:
-                current_url = json_data["next"]
-            else:
-                current_url = None
-        return results
-
+import StarWarsAPI from '/StarWarsAPI'
 
 class Database:
     def __init__(self, host, port, user, password, database):
